@@ -1,0 +1,25 @@
+[
+  {
+    "event": "booking_step_complete",
+    "step_number": 1,
+    "step_name": "location_specialty_selected",
+    "clinic_location": "Koramangala",
+    "specialty": "Orthopaedics"
+  },
+  {
+    "event": "booking_step_complete",
+    "step_number": 2,
+    "step_name": "patient_details_entered",
+    "patient_name": "John Doe",
+    "phone_number": "9876543210",
+    "preferred_date": "2026-07-10"
+  },
+  {
+    "event": "booking_step_complete",
+    "step_number": 3,
+    "step_name": "booking_confirmed",
+    "booking_id": "ORTHO123456",
+    "clinic_location": "Koramangala",
+    "confirmation_status": "Success"
+  }
+]

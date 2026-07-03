@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f4c81" />
+  <title>OrthoCare Plus — Advanced Orthopaedic & Joint Care Hospital</title>
+  <meta name="description" content="OrthoCare Plus is a premium orthopaedic hospital offering joint replacement, spine surgery, sports injury & physiotherapy. Book appointments with verified doctors, online consultation & 24x7 emergency care." />
+  <meta name="keywords" content="orthopaedic hospital, joint replacement, spine surgery, sports injury, physiotherapy, book doctor appointment, online consultation" />
+  <meta name="author" content="OrthoCare Plus" />
+  <link rel="canonical" href="https://orthocareplus.example.com/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="OrthoCare Plus — Advanced Orthopaedic & Joint Care" />
+  <meta property="og:description" content="Premium orthopaedic care. Verified doctors, online consultation, 24x7 emergency & insurance accepted." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/hero-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hospital",
+    "name": "OrthoCare Plus",
+    "medicalSpecialty": "Orthopaedic",
+    "image": "/images/hero-1.jpg",
+    "telephone": "+91-98765-43210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "12 Wellness Avenue, Banjara Hills",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500034",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Sa 08:00-21:00",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "2150"
+    }
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       DESIGN SYSTEM — tokens
+    ========================================================= */
+    :root {
+      --primary: #0f4c81;        /* deep medical blue */
+      --primary-600: #135a96;
+      --primary-700: #0c3c66;
+      --teal: #16b9a8;           /* fresh teal */
+      --teal-600: #0fa294;
+      --accent: #ff6b5e;         /* warm coral */
+      --ink: #15233b;            /* heading text */
+      --body: #4a5a73;           /* body text */
+      --muted: #7c8aa3;
+      --bg: #f4f8fc;             /* page background */
+      --surface: #ffffff;
+      --surface-soft: #eef5fb;
+      --line: #e2eaf3;
+      --star: #ffb23e;
+
+      --radius: 18px;
+      --radius-lg: 26px;
+      --radius-sm: 12px;
+
+      --shadow-sm: 0 4px 14px rgba(15, 76, 129, 0.06);
+      --shadow: 0 14px 40px rgba(15, 76, 129, 0.10);
+      --shadow-lg: 0 30px 70px rgba(15, 76, 129, 0.16);
+      --glass: rgba(255, 255, 255, 0.65);
+      --glass-line: rgba(255, 255, 255, 0.6);
+
+      --grad-primary: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+      --grad-warm: linear-gradient(135deg, #ff8a5b 0%, var(--accent) 100%);
+
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --container: 1200px;
+    }
+
+    /* =========================================================
+       RESET / BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      color: var(--body);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: "Sora", "Plus Jakarta Sans", sans-serif; color: var(--ink); line-height: 1.15; font-weight: 700; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; padding: 0; }
+    input, select, textarea { font-family: inherit; font-size: 1rem; }
+    :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+
+    .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 20px; }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+    .btn {
+      position: relative; overflow: hidden;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s;
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--grad-primary); color: #fff; box-shadow: 0 10px 24px rgba(15,76,129,.28); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(15,76,129,.36); }
+    .btn-accent { background: var(--grad-warm); color: #fff; box-shadow: 0 10px 24px rgba(255,107,94,.32); }
+    .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(255,107,94,.4); }
+    .btn-ghost { background: #fff; color: var(--primary); border: 1.5px solid var(--line); box-shadow: var(--shadow-sm); }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--teal); color: var(--teal-600); }
+    .btn-outline-light { background: rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.5); backdrop-filter: blur(6px); }
+    .btn-outline-light:hover { background: rgba(255,255,255,.24); }
+    .btn-lg { padding: 16px 30px; font-size: 1rem; }
+    /* ripple */
+    .ripple { position: absolute; border-radius: 50%; transform: scale(0); background: rgba(255,255,255,.5); animation: ripple .6s linear; pointer-events: none; }
+    @keyframes ripple { to { transform: scale(4); opacity: 0; } }
+
+    /* =========================================================
+       SCROLL PROGRESS
+    ========================================================= */
+    .scroll-progress { position: fixed; top: 0; left: 0; height: 4px; width: 0%; z-index: 1000; background: var(--grad-primary); transition: width .1s linear; }
+
+    /* =========================================================
+       TOP UTILITY BAR
+    ========================================================= */
+    .topbar { background: var(--primary-700); color: #dbe9f6; font-size: .82rem; }
+    .topbar .container { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 38px; flex-wrap: wrap; }
+    .topbar a { display: inline-flex; align-items: center; gap: 6px; transition: color .2s; }
+    .topbar a:hover { color: #fff; }
+    .topbar-left { display: flex; gap: 18px; flex-wrap: wrap; }
+    .topbar-right { display: flex; gap: 10px; align-items: center; }
+    .topbar-right .chip { padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); font-weight: 600; }
+    .topbar-right .chip:hover { background: rgba(255,255,255,.12); }
+    @media (max-width: 720px){ .topbar-left .hide-sm { display: none; } }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+    .nav {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255,255,255,.82); backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent; transition: box-shadow .3s, background .3s, border-color .3s;
+    }
+    .nav.scrolled { box-shadow: var(--shadow-sm); border-color: var(--line); background: rgba(255,255,255,.92); }
+    .nav .container { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-family: "Sora"; font-weight: 800; font-size: 1.22rem; color: var(--ink); }
+    .brand .logo { width: 42px; height: 42px; border-radius: 13px; background: var(--grad-primary); display: grid; place-items: center; color:#fff; box-shadow: 0 8px 18px rgba(15,76,129,.3); }
+    .brand .logo svg { width: 24px; height: 24px; }
+    .brand span small { display: block; font-family: "Plus Jakarta Sans"; font-size: .66rem; font-weight: 600; color: var(--teal-600); letter-spacing: .14em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { padding: 9px 14px; border-radius: 999px; font-weight: 600; font-size: .92rem; color: var(--body); transition: color .2s, background .2s; }
+    .nav-links a:hover { color: var(--primary); background: var(--surface-soft); }
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .nav-links .nav-cta { display: none; } /* in-drawer CTA only shows on mobile */
+    .menu-toggle { display: none; width: 44px; height: 44px; border-radius: 12px; background: var(--surface-soft); color: var(--primary); place-items: center; }
+    .menu-toggle svg { width: 24px; height: 24px; }
+
+    @media (max-width: 980px){
+      .nav-links { position: fixed; inset: 0 0 0 auto; width: min(80vw, 320px); flex-direction: column; align-items: stretch; gap: 6px;
+        background: #fff; padding: 90px 20px 30px; box-shadow: var(--shadow-lg); transform: translateX(105%); transition: transform .35s var(--ease); z-index: 950; }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { padding: 13px 16px; border-radius: 14px; font-size: 1rem; }
+      .menu-toggle { display: grid; }
+      .nav .desk-cta { display: none; }
+      .nav-links .nav-cta { display: flex; }
+      .nav-overlay { position: fixed; inset: 0; background: rgba(15,35,59,.45); opacity: 0; visibility: hidden; transition: .3s; z-index: 940; }
+      .nav-overlay.open { opacity: 1; visibility: visible; }
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero { position: relative; isolation: isolate; padding: clamp(48px, 7vw, 96px) 0 clamp(60px, 8vw, 120px); overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: -2; }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s var(--ease), transform 7s linear; transform: scale(1.05); }
+    .hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-slide.active { opacity: 1; transform: scale(1.12); }
+    .hero-bg::after { content:""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(8,40,70,.92) 0%, rgba(10,50,86,.78) 42%, rgba(15,76,129,.35) 100%); }
+    .hero-dots { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 5; }
+    .hero-dots button { width: 11px; height: 11px; border-radius: 999px; background: rgba(255,255,255,.45); transition: .3s; }
+    .hero-dots button.active { background: #fff; width: 30px; }
+
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+    .hero-copy { color: #fff; max-width: 620px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(8px); font-size: .82rem; font-weight: 600; margin-bottom: 20px; }
+    .hero-badge .pulse-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--teal); box-shadow: 0 0 0 0 rgba(22,185,168,.7); animation: pulseDot 1.8s infinite; }
+    @keyframes pulseDot { 0%{ box-shadow: 0 0 0 0 rgba(22,185,168,.7);} 70%{ box-shadow:0 0 0 12px rgba(22,185,168,0);} 100%{ box-shadow:0 0 0 0 rgba(22,185,168,0);} }
+    .hero h1 { color: #fff; font-size: clamp(2.1rem, 4.6vw, 3.5rem); letter-spacing: -.02em; }
+    .hero h1 .hl { background: linear-gradient(120deg, #6ff3e4, #aee8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-sub { color: #d3e4f3; font-size: clamp(1rem, 1.6vw, 1.16rem); margin: 18px 0 26px; max-width: 540px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 26px; }
+
+    /* hero search card (glass) */
+    .hero-search { background: var(--glass); backdrop-filter: blur(18px); border: 1px solid var(--glass-line); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 22px; }
+    .hero-search h3 { font-size: 1.02rem; margin-bottom: 14px; color: var(--ink); }
+    .search-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; }
+    .field { position: relative; }
+    .field svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 19px; height: 19px; color: var(--muted); pointer-events: none; }
+    .field input, .field select { width: 100%; padding: 14px 14px 14px 42px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); appearance: none; transition: border-color .2s, box-shadow .2s; }
+    .field input:focus, .field select:focus { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(22,185,168,.14); outline: none; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .chips span { font-size: .78rem; color: var(--body); }
+    .chips a { font-size: .78rem; padding: 6px 12px; background: var(--surface-soft); border-radius: 999px; font-weight: 600; color: var(--primary); transition: .2s; }
+    .chips a:hover { background: var(--teal); color: #fff; }
+
+    /* hero stats */
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+    .stat-card { background: var(--glass); backdrop-filter: blur(14px); border: 1px solid var(--glass-line); border-radius: 18px; padding: 16px; text-align: center; box-shadow: var(--shadow-sm); }
+    .stat-card .num { font-family: "Sora"; font-weight: 800; font-size: clamp(1.3rem, 2.6vw, 1.9rem); color: #fff; }
+    .stat-card .lbl { font-size: .76rem; color: #cfe2f2; font-weight: 600; }
+    .stat-card .stars { color: var(--star); letter-spacing: 2px; font-size: .95rem; }
+
+    @media (max-width: 980px){
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 560px){
+      .search-row { grid-template-columns: 1fr; }
+    }
+
+    /* =========================================================
+       FEATURE STRIP (quick actions)
+    ========================================================= */
+    .feature-strip { margin-top: -46px; position: relative; z-index: 10; }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .feature-card { background: #fff; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); border: 1px solid var(--line); display: flex; gap: 14px; align-items: flex-start; transition: transform .3s var(--ease), box-shadow .3s; }
+    .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .feature-card .ic { flex: none; width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--surface-soft); color: var(--primary); }
+    .feature-card .ic svg { width: 24px; height: 24px; }
+    .feature-card h4 { font-size: 1rem; }
+    .feature-card p { font-size: .83rem; color: var(--muted); margin-top: 2px; }
+    @media (max-width: 880px){ .feature-grid { grid-template-columns: repeat(2,1fr); } }
+
+    /* =========================================================
+       SECTION SHELL
+    ========================================================= */
+    section { scroll-margin-top: 90px; }
+    .section { padding: clamp(56px, 8vw, 96px) 0; }
+    .section-head { text-align: center; max-width: 680px; margin: 0 auto 46px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-600); background: rgba(22,185,168,.1); padding: 6px 14px; border-radius: 999px; margin-bottom: 14px; }
+    .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); letter-spacing: -.02em; }
+    .section-head p { margin-top: 12px; color: var(--body); font-size: 1.02rem; }
+
+    /* =========================================================
+       SPECIALITIES / SERVICES
+    ========================================================= */
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .service-card { position: relative; overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 28px; transition: transform .35s var(--ease), box-shadow .35s, border-color .35s; }
+    .service-card::before { content:""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--grad-primary); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card .s-ic { width: 60px; height: 60px; border-radius: 18px; display: grid; place-items: center; background: var(--grad-primary); color: #fff; box-shadow: 0 12px 24px rgba(15,76,129,.25); margin-bottom: 18px; transition: transform .35s var(--ease); }
+    .service-card:hover .s-ic { transform: rotate(-8deg) scale(1.06); }
+    .service-card .s-ic svg { width: 30px; height: 30px; }
+    .service-card h3 { font-size: 1.18rem; margin-bottom: 8px; }
+    .service-card p { font-size: .92rem; }
+    .service-card .more { margin-top: 16px; display: inline-flex; align-items: center; gap: 7px; font-weight: 700; color: var(--teal-600); font-size: .9rem; }
+    .service-card .more svg { width: 16px; height: 16px; transition: transform .25s; }
+    .service-card:hover .more svg { transform: translateX(4px); }
+    @media (max-width: 920px){ .services-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px){ .services-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       DOCTORS
+    ========================================================= */
+    .doctors-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+    .doc-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .35s var(--ease), box-shadow .35s; display: flex; flex-direction: column; }
+    .doc-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .doc-photo { position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--surface-soft); }
+    .doc-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+    .doc-card:hover .doc-photo img { transform: scale(1.06); }
+    .doc-avail { position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px; font-size: .72rem; font-weight: 700; color: #0c7d57; background: rgba(255,255,255,.92); padding: 5px 10px; border-radius: 999px; box-shadow: var(--shadow-sm); }
+    .doc-avail .d { width: 8px; height: 8px; border-radius: 999px; background: #14b86b; }
+    .doc-rating { position: absolute; top: 12px; right: 12px; font-size: .74rem; font-weight: 700; color: var(--ink); background: rgba(255,255,255,.92); padding: 5px 9px; border-radius: 999px; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 4px; }
+    .doc-rating svg { width: 13px; height: 13px; color: var(--star); }
+    .doc-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .doc-body h3 { font-size: 1.1rem; }
+    .doc-spec { color: var(--teal-600); font-weight: 700; font-size: .85rem; margin: 2px 0 8px; }
+    .doc-meta { display: flex; flex-direction: column; gap: 5px; font-size: .82rem; color: var(--body); margin-bottom: 14px; }
+    .doc-meta div { display: flex; align-items: center; gap: 7px; }
+    .doc-meta svg { width: 15px; height: 15px; color: var(--muted); flex: none; }
+    .doc-langs { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+    .doc-langs span { font-size: .7rem; background: var(--surface-soft); color: var(--primary); padding: 3px 9px; border-radius: 999px; font-weight: 600; }
+    .doc-actions { margin-top: auto; display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    .doc-actions .btn { padding: 11px 14px; font-size: .85rem; }
+    @media (max-width: 1024px){ .doctors-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 540px){ .doctors-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       TODAY'S SCHEDULE
+    ========================================================= */
+    .schedule { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; }
+    .schedule table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    .schedule-wrap { overflow-x: auto; }
+    .schedule th, .schedule td { padding: 15px 18px; text-align: left; font-size: .9rem; }
+    .schedule thead th { background: var(--primary-700); color: #dceaf7; font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .06em; }
+    .schedule tbody tr { border-top: 1px solid var(--line); transition: background .2s; }
+    .schedule tbody tr:hover { background: var(--surface-soft); }
+    .schedule td strong { color: var(--ink); }
+    .badge-slot { display: inline-block; padding: 4px 11px; border-radius: 999px; font-size: .76rem; font-weight: 700; }
+    .badge-slot.open { background: rgba(20,184,107,.13); color: #0c7d57; }
+    .badge-slot.few { background: rgba(255,178,62,.16); color: #b6740a; }
+    .badge-slot.full { background: rgba(255,107,94,.14); color: #c8362b; }
+
+    /* =========================================================
+       PACKAGES
+    ========================================================= */
+    .pkg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .pkg-card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 30px 26px; box-shadow: var(--shadow-sm); transition: transform .35s var(--ease), box-shadow .35s; display: flex; flex-direction: column; }
+    .pkg-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .pkg-card.featured { background: var(--grad-primary); color: #fff; border-color: transparent; }
+    .pkg-card.featured h3, .pkg-card.featured .price { color: #fff; }
+    .pkg-card.featured .pkg-list li { color: #e3f0fb; }
+    .pkg-card.featured .pkg-list svg { color: #8ff0e2; }
+    .pkg-tag { position: absolute; top: 18px; right: 18px; font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; background: var(--grad-warm); color: #fff; padding: 5px 12px; border-radius: 999px; }
+    .pkg-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .pkg-card .desc { font-size: .85rem; opacity: .9; margin-bottom: 16px; }
+    .price { font-family: "Sora"; font-weight: 800; font-size: 2rem; color: var(--ink); }
+    .price small { font-size: .9rem; font-weight: 600; color: var(--muted); text-decoration: line-through; margin-left: 8px; }
+    .pkg-list { margin: 18px 0 22px; display: flex; flex-direction: column; gap: 10px; }
+    .pkg-list li { display: flex; gap: 9px; align-items: flex-start; font-size: .88rem; color: var(--body); }
+    .pkg-list svg { width: 18px; height: 18px; color: var(--teal-600); flex: none; margin-top: 2px; }
+    .pkg-card .btn { margin-top: auto; }
+    @media (max-width: 920px){ .pkg-grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
+
+    /* =========================================================
+       WHY / COUNTERS + TIMELINE
+    ========================================================= */
+    .why { background: var(--primary-700); color: #fff; position: relative; overflow: hidden; }
+    .why::before { content:""; position: absolute; width: 460px; height: 460px; border-radius: 50%; background: radial-gradient(circle, rgba(22,185,168,.35), transparent 70%); top: -160px; right: -120px; }
+    .why .eyebrow { color: #8ff0e2; background: rgba(143,240,226,.12); }
+    .why .section-head h2 { color: #fff; }
+    .why .section-head p { color: #cfe2f2; }
+    .counters { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-bottom: 60px; }
+    .counter { text-align: center; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 26px 16px; backdrop-filter: blur(6px); }
+    .counter .num { font-family: "Sora"; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.7rem); color: #fff; }
+    .counter .num .suf { color: var(--teal); }
+    .counter .lbl { font-size: .84rem; color: #cfe2f2; margin-top: 4px; font-weight: 600; }
+    @media (max-width: 720px){ .counters { grid-template-columns: repeat(2,1fr); } }
+
+    .timeline { position: relative; max-width: 820px; margin: 0 auto; padding-left: 10px; }
+    .timeline::before { content:""; position: absolute; left: 22px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--teal), rgba(255,255,255,.1)); }
+    .tl-item { position: relative; padding: 0 0 30px 60px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot { position: absolute; left: 13px; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 5px rgba(22,185,168,.2); }
+    .tl-item h4 { color: #fff; font-size: 1.05rem; }
+    .tl-item .yr { font-size: .78rem; font-weight: 700; color: var(--teal); letter-spacing: .06em; }
+    .tl-item p { color: #c4d8ea; font-size: .9rem; margin-top: 4px; }
+
+    /* =========================================================
+       LOCATIONS / MAP
+    ========================================================= */
+    .loc-layout { display: grid; grid-template-columns: 380px 1fr; gap: 26px; align-items: start; }
+    .loc-list { display: flex; flex-direction: column; gap: 14px; }
+    .loc-card { background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius); padding: 20px; cursor: pointer; transition: border-color .25s, box-shadow .25s, transform .25s; }
+    .loc-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .loc-card.active { border-color: var(--teal); box-shadow: 0 0 0 4px rgba(22,185,168,.12); }
+    .loc-card h3 { font-size: 1.06rem; display: flex; align-items: center; gap: 8px; }
+    .loc-card h3 svg { width: 18px; height: 18px; color: var(--teal-600); }
+    .loc-card .addr { font-size: .86rem; margin: 8px 0 10px; }
+    .loc-info { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .8rem; color: var(--body); margin-bottom: 14px; }
+    .loc-info span { display: inline-flex; align-items: center; gap: 6px; }
+    .loc-info svg { width: 14px; height: 14px; color: var(--muted); }
+    .loc-info .open { color: #0c7d57; font-weight: 700; }
+    .loc-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .loc-actions .btn { padding: 9px 16px; font-size: .82rem; }
+    .map-frame { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); height: 100%; min-height: 480px; }
+    .map-frame iframe { width: 100%; height: 100%; min-height: 480px; border: 0; display: block; }
+    @media (max-width: 920px){ .loc-layout { grid-template-columns: 1fr; } .map-frame, .map-frame iframe { min-height: 360px; } }
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+    .testi-wrap { position: relative; max-width: 900px; margin: 0 auto; }
+    .testi-track { display: flex; transition: transform .6s var(--ease); }
+    .testi-slide { min-width: 100%; padding: 6px; }
+    .testi-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 38px; box-shadow: var(--shadow); text-align: center; }
+    .testi-card .quote-mark { font-family: "Sora"; font-size: 3.4rem; line-height: .5; color: var(--teal); opacity: .35; }
+    .testi-card p.q { font-size: clamp(1rem, 1.8vw, 1.22rem); color: var(--ink); font-weight: 500; margin: 14px auto 24px; max-width: 640px; }
+    .testi-stars { color: var(--star); letter-spacing: 3px; font-size: 1.1rem; margin-bottom: 18px; }
+    .testi-person { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .testi-person img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface-soft); }
+    .testi-person .nm { text-align: left; }
+    .testi-person .nm strong { color: var(--ink); display: flex; align-items: center; gap: 6px; }
+    .testi-person .nm strong svg { width: 16px; height: 16px; color: var(--teal-600); }
+    .testi-person .nm span { font-size: .8rem; color: var(--muted); }
+    .testi-nav { display: flex; justify-content: center; gap: 10px; margin-top: 26px; }
+    .testi-nav button { width: 46px; height: 46px; border-radius: 50%; background: #fff; border: 1.5px solid var(--line); color: var(--primary); display: grid; place-items: center; transition: .2s; box-shadow: var(--shadow-sm); }
+    .testi-nav button:hover { background: var(--teal); color: #fff; border-color: var(--teal); }
+    .testi-nav button svg { width: 20px; height: 20px; }
+
+    /* =========================================================
+       LOGOS / PARTNERS / AWARDS
+    ========================================================= */
+    .logo-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; }
+    .logo-pill { display: flex; align-items: center; gap: 9px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 20px; box-shadow: var(--shadow-sm); font-weight: 700; color: var(--ink); font-size: .92rem; transition: transform .25s, box-shadow .25s; }
+    .logo-pill:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .logo-pill svg { width: 22px; height: 22px; color: var(--teal-600); }
+    .award-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 40px; }
+    .award { text-align: center; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 18px; box-shadow: var(--shadow-sm); transition: transform .3s; }
+    .award:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .award .a-ic { width: 52px; height: 52px; margin: 0 auto 12px; border-radius: 16px; display: grid; place-items: center; background: var(--surface-soft); color: var(--accent); }
+    .award .a-ic svg { width: 26px; height: 26px; }
+    .award h4 { font-size: .98rem; }
+    .award p { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+    @media (max-width: 820px){ .award-grid { grid-template-columns: repeat(2,1fr); } }
+
+    /* =========================================================
+       HEALTH TIPS CAROUSEL
+    ========================================================= */
+    .tips-carousel { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 4px 18px; -webkit-overflow-scrolling: touch; }
+    .tips-carousel::-webkit-scrollbar { height: 8px; }
+    .tips-carousel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+    .tip-card { scroll-snap-align: start; min-width: 300px; flex: 0 0 300px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); }
+    .tip-card .t-ic { width: 46px; height: 46px; border-radius: 14px; background: var(--grad-primary); color: #fff; display: grid; place-items: center; margin-bottom: 14px; }
+    .tip-card .t-ic svg { width: 24px; height: 24px; }
+    .tip-card h4 { font-size: 1.02rem; margin-bottom: 6px; }
+    .tip-card p { font-size: .87rem; }
+
+    /* =========================================================
+       VIDEO + GALLERY
+    ========================================================= */
+    .media-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: stretch; }
+    .video-box { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); min-height: 340px; }
+    .video-box img { width: 100%; height: 100%; object-fit: cover; }
+    .video-box::after { content:""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(8,40,70,.7), rgba(8,40,70,.15)); }
+    .video-box .play { position: absolute; inset: 0; margin: auto; width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.92); display: grid; place-items: center; z-index: 2; box-shadow: 0 14px 40px rgba(0,0,0,.3); transition: transform .3s; }
+    .video-box .play:hover { transform: scale(1.08); }
+    .video-box .play svg { width: 30px; height: 30px; color: var(--primary); margin-left: 4px; }
+    .video-box .v-cap { position: absolute; left: 24px; bottom: 22px; color: #fff; z-index: 2; }
+    .video-box .v-cap h3 { color: #fff; font-size: 1.2rem; }
+    .video-box .v-cap p { color: #d3e4f3; font-size: .85rem; }
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: 14px; }
+    .gallery a { border-radius: var(--radius); overflow: hidden; position: relative; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+    .gallery a:hover img { transform: scale(1.08); }
+    @media (max-width: 820px){ .media-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       BOOKING FORM
+    ========================================================= */
+    .booking { background: var(--grad-primary); position: relative; overflow: hidden; }
+    .booking::before { content:""; position: absolute; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.12), transparent 70%); top: -200px; left: -120px; }
+    .booking-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; position: relative; z-index: 2; }
+    .booking-info { color: #fff; }
+    .booking-info .eyebrow { color: #8ff0e2; background: rgba(143,240,226,.14); }
+    .booking-info h2 { color: #fff; font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+    .booking-info p { color: #d8e9f7; margin: 14px 0 24px; }
+    .booking-info ul { display: flex; flex-direction: column; gap: 14px; }
+    .booking-info li { display: flex; gap: 12px; align-items: center; }
+    .booking-info li .bic { width: 42px; height: 42px; border-radius: 12px; background: rgba(255,255,255,.14); display: grid; place-items: center; flex: none; }
+    .booking-info li .bic svg { width: 22px; height: 22px; color: #fff; }
+    .booking-info li strong { color: #fff; display: block; }
+    .booking-info li span { font-size: .85rem; color: #cfe2f2; }
+
+    .booking-card { background: #fff; border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-lg); }
+    .booking-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
+    .booking-card .sub { font-size: .87rem; color: var(--muted); margin-bottom: 22px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: .82rem; font-weight: 700; color: var(--ink); }
+    .form-group label .req { color: var(--accent); }
+    .form-control { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid var(--line); background: #fafcfe; color: var(--ink); transition: border-color .2s, box-shadow .2s; }
+    .form-control:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(22,185,168,.14); background: #fff; }
+    select.form-control { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237c8aa3' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+    .form-error { font-size: .74rem; color: #c8362b; display: none; }
+    .form-group.invalid .form-control { border-color: var(--accent); }
+    .form-group.invalid .form-error { display: block; }
+    .btn-submit { width: 100%; margin-top: 6px; }
+    .btn-submit .spinner { width: 19px; height: 19px; border: 2.5px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; display: none; }
+    .btn-submit.loading .spinner { display: inline-block; }
+    .btn-submit.loading .label { opacity: .8; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    /* success */
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success.show { display: block; animation: fadeUp .5s var(--ease); }
+    .success-check { width: 84px; height: 84px; margin: 0 auto 18px; border-radius: 50%; background: rgba(20,184,107,.12); display: grid; place-items: center; }
+    .success-check svg { width: 44px; height: 44px; color: #14b86b; }
+    .success-check svg path { stroke-dasharray: 60; stroke-dashoffset: 60; animation: draw .7s .15s var(--ease) forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .form-success h3 { font-size: 1.4rem; margin-bottom: 6px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 920px){ .booking-layout { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       BLOG
+    ========================================================= */
+    .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .blog-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .35s var(--ease), box-shadow .35s; }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .blog-card .b-img { aspect-ratio: 16/10; overflow: hidden; }
+    .blog-card .b-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+    .blog-card:hover .b-img img { transform: scale(1.07); }
+    .blog-body { padding: 22px; }
+    .blog-body .b-cat { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--teal-600); }
+    .blog-body h3 { font-size: 1.1rem; margin: 8px 0; }
+    .blog-body p { font-size: .87rem; }
+    .blog-body .b-meta { margin-top: 14px; display: flex; gap: 14px; font-size: .78rem; color: var(--muted); }
+    .blog-body .b-meta span { display: inline-flex; gap: 5px; align-items: center; }
+    .blog-body .b-meta svg { width: 14px; height: 14px; }
+    @media (max-width: 920px){ .blog-grid { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+    .faq-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: box-shadow .25s, border-color .25s; }
+    .faq-item.open { box-shadow: var(--shadow); border-color: var(--teal); }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 22px; text-align: left; font-weight: 700; color: var(--ink); font-size: 1rem; }
+    .faq-q .pm { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--surface-soft); color: var(--primary); display: grid; place-items: center; transition: transform .3s, background .3s; }
+    .faq-item.open .faq-q .pm { transform: rotate(45deg); background: var(--teal); color: #fff; }
+    .faq-q .pm svg { width: 18px; height: 18px; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s var(--ease); }
+    .faq-a p { padding: 0 22px 20px; font-size: .92rem; color: var(--body); }
+
+    /* =========================================================
+       NEWSLETTER
+    ========================================================= */
+    .newsletter-card { background: var(--ink); border-radius: var(--radius-lg); padding: clamp(30px, 5vw, 56px); display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+    .newsletter-card::before { content:""; position: absolute; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(22,185,168,.4), transparent 70%); top: -120px; right: -60px; }
+    .newsletter-card h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2.1rem); position: relative; }
+    .newsletter-card p { color: #b9c6d8; margin-top: 8px; position: relative; }
+    .news-form { display: flex; gap: 10px; position: relative; z-index: 2; flex-wrap: wrap; }
+    .news-form input { padding: 15px 18px; border-radius: 999px; border: none; min-width: 250px; flex: 1; }
+    @media (max-width: 820px){ .newsletter-card { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer { background: var(--primary-700); color: #c4d8ea; padding: 70px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 36px; padding-bottom: 50px; }
+    .footer .brand { color: #fff; margin-bottom: 16px; }
+    .footer .brand span small { color: #8ff0e2; }
+    .footer .about { font-size: .9rem; color: #aac3da; max-width: 320px; }
+    .footer h4 { color: #fff; font-size: 1rem; margin-bottom: 18px; }
+    .footer-links { display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: .9rem; transition: color .2s, padding .2s; }
+    .footer-links a:hover { color: #fff; padding-left: 5px; }
+    .footer-contact li { display: flex; gap: 11px; align-items: flex-start; font-size: .9rem; margin-bottom: 14px; }
+    .footer-contact svg { width: 18px; height: 18px; color: #8ff0e2; flex: none; margin-top: 2px; }
+    .footer-map { margin-top: 8px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,.15); }
+    .footer-map iframe { width: 100%; height: 140px; border: 0; display: block; }
+    .socials { display: flex; gap: 10px; margin-top: 18px; }
+    .socials a { width: 40px; height: 40px; border-radius: 12px; background: rgba(255,255,255,.1); display: grid; place-items: center; transition: .25s; }
+    .socials a:hover { background: var(--teal); transform: translateY(-3px); }
+    .socials svg { width: 19px; height: 19px; color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 22px 0; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: .84rem; }
+    .footer-bottom a:hover { color: #fff; }
+    .footer-bottom .fb-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    @media (max-width: 920px){ .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px){ .footer-grid { grid-template-columns: 1fr; } }
+
+    /* =========================================================
+       FLOATING ACTIONS
+    ========================================================= */
+    .fab-stack { position: fixed; right: 18px; bottom: 18px; z-index: 800; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+    .fab { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; color: #fff; box-shadow: var(--shadow-lg); transition: transform .25s, box-shadow .25s; position: relative; }
+    .fab:hover { transform: scale(1.08) translateY(-2px); }
+    .fab svg { width: 26px; height: 26px; }
+    .fab.wa { background: #25d366; }
+    .fab.call { background: var(--primary); }
+    .fab.chat { background: var(--teal); }
+    .fab.top { background: var(--ink); opacity: 0; visibility: hidden; transform: translateY(12px); }
+    .fab.top.show { opacity: 1; visibility: visible; transform: none; }
+    .fab .ping { position: absolute; inset: 0; border-radius: 50%; animation: ping 1.8s infinite; }
+    .fab.wa .ping { box-shadow: 0 0 0 0 rgba(37,211,102,.6); }
+    @keyframes ping { 0%{ box-shadow: 0 0 0 0 rgba(37,211,102,.5);} 70%{ box-shadow: 0 0 0 14px rgba(37,211,102,0);} 100%{ box-shadow: 0 0 0 0 rgba(37,211,102,0);} }
+    .fab .tip { position: absolute; right: 64px; top: 50%; transform: translateY(-50%); background: var(--ink); color: #fff; font-size: .78rem; font-weight: 600; padding: 6px 12px; border-radius: 8px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s; }
+    .fab:hover .tip { opacity: 1; }
+
+    /* mobile sticky appointment bar */
+    .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 790; background: #fff; box-shadow: 0 -8px 30px rgba(15,76,129,.14); padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); display: none; gap: 10px; border-top: 1px solid var(--line); }
+    .sticky-cta .btn { flex: 1; }
+    @media (max-width: 768px){
+      .sticky-cta { display: flex; }
+      .fab-stack { bottom: 78px; }
+    }
+
+    /* live chat popup (UI only) */
+    .chat-pop { position: fixed; right: 18px; bottom: 84px; z-index: 810; width: min(340px, calc(100vw - 36px)); background: #fff; border-radius: 20px; box-shadow: var(--shadow-lg); overflow: hidden; transform: translateY(20px) scale(.96); opacity: 0; visibility: hidden; transition: .3s var(--ease); }
+    .chat-pop.open { transform: none; opacity: 1; visibility: visible; }
+    .chat-head { background: var(--grad-primary); color: #fff; padding: 16px 18px; display: flex; align-items: center; gap: 10px; }
+    .chat-head .ava { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.2); display: grid; place-items: center; }
+    .chat-head .ava svg { width: 20px; height: 20px; }
+    .chat-head strong { display: block; font-size: .95rem; }
+    .chat-head span { font-size: .74rem; color: #cfe2f2; }
+    .chat-body { padding: 18px; background: var(--surface-soft); max-height: 240px; overflow-y: auto; }
+    .chat-msg { background: #fff; padding: 12px 14px; border-radius: 14px 14px 14px 4px; font-size: .86rem; box-shadow: var(--shadow-sm); margin-bottom: 10px; }
+    .chat-foot { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--line); }
+    .chat-foot input { flex: 1; padding: 11px 14px; border-radius: 999px; border: 1.5px solid var(--line); }
+    .chat-foot button { width: 44px; height: 44px; border-radius: 50%; background: var(--grad-primary); color: #fff; display: grid; place-items: center; flex: none; }
+    .chat-foot button svg { width: 20px; height: 20px; }
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+    [data-reveal] { opacity: 0; transform: translateY(34px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    [data-reveal].in { opacity: 1; transform: none; }
+    [data-reveal][data-delay="1"] { transition-delay: .08s; }
+    [data-reveal][data-delay="2"] { transition-delay: .16s; }
+    [data-reveal][data-delay="3"] { transition-delay: .24s; }
+    [data-reveal][data-delay="4"] { transition-delay: .32s; }
+
+    @media (prefers-reduced-motion: reduce){
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <!-- skip link for accessibility -->
+  <a href="#main" class="visually-hidden">Skip to main content</a>
+
+  <!-- scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===================== TOP UTILITY BAR ===================== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <a href="tel:+919876543210" aria-label="Call us">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          +91 98765 43210
+        </a>
+        <a href="mailto:care@orthocareplus.com" class="hide-sm">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+          care@orthocareplus.com
+        </a>
+        <span class="hide-sm" style="opacity:.85">Mon–Sat: 8:00 AM – 9:00 PM</span>
+      </div>
+      <div class="topbar-right">
+        <a href="#login" class="chip">Patient Login</a>
+        <a href="#login" class="chip">Doctor Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="#home" class="brand" aria-label="OrthoCare Plus home">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v4M8 6c-2 0-3 1-3 3s1 3 3 3M16 2v4M16 6c2 0 3 1 3 3s-1 3-3 3M8 12h8M8 18v4M8 18c-2 0-3-1-3-3M16 18v4M16 18c2 0 3-1 3-3"/></svg>
+        </span>
+        <span>OrthoCare<small>Plus · Bone &amp; Joint</small></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#services">Specialities</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#packages">Packages</a>
+        <a href="#locations">Locations</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#blog">Articles</a>
+        <a href="#faq">FAQ</a>
+        <div class="nav-cta" style="margin-top:8px">
+          <a href="#booking" class="btn btn-primary" style="width:100%">Book Appointment</a>
+        </div>
+      </nav>
+
+      <div class="nav-cta desk-cta">
+        <a href="tel:+919876543210" class="btn btn-ghost">Call Now</a>
+        <a href="#booking" class="btn btn-primary">Book Appointment</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-slide active"><img src="/images/hero-1.jpg" alt="" width="1600" height="1024" fetchpriority="high" /></div>
+        <div class="hero-slide"><img src="/images/hero-2.jpg" alt="" width="1600" height="1024" loading="lazy" /></div>
+        <div class="hero-slide"><img src="/images/hero-3.jpg" alt="" width="1600" height="1024" loading="lazy" /></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="hero-badge"><span class="pulse-dot"></span> NABH Accredited · 24×7 Emergency Care</span>
+          <h1>Expert Care for Your <span class="hl">Bones &amp; Joints</span></h1>
+          <p class="hero-sub">India's trusted orthopaedic hospital for joint replacement, spine surgery, sports injuries and pain-free movement — led by verified, award-winning surgeons.</p>
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-accent btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Book Appointment
+            </a>
+            <a href="tel:+919876543210" class="btn btn-outline-light btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              Call Now
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <div class="num" data-count="4.9" data-decimals="1">0</div>
+              <div class="lbl">Google Rating</div>
+            </div>
+            <div class="stat-card">
+              <div class="num"><span data-count="28">0</span><span class="suf">+</span></div>
+              <div class="lbl">Years Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="num"><span data-count="60">0</span><span class="suf">+</span></div>
+              <div class="lbl">Expert Doctors</div>
+            </div>
+            <div class="stat-card">
+              <div class="num"><span data-count="120">0</span><span class="suf">K+</span></div>
+              <div class="lbl">Patients Treated</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- hero search card -->
+        <div class="hero-search" data-reveal>
+          <h3>Find the right doctor for you</h3>
+          <form class="search-row" onsubmit="goBooking(event)">
+            <div class="field">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" placeholder="Search doctor by name" aria-label="Search doctor by name" />
+            </div>
+            <div class="field">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              <select aria-label="Search by speciality">
+                <option value="">Search by speciality</option>
+                <option>Joint Replacement</option>
+                <option>Spine Surgery</option>
+                <option>Sports Injury</option>
+                <option>Physiotherapy</option>
+                <option>Pediatric Orthopaedics</option>
+                <option>Trauma Care</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit" aria-label="Search">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+          </form>
+          <div class="chips">
+            <span>Popular:</span>
+            <a href="#services">Knee Pain</a>
+            <a href="#services">Back Pain</a>
+            <a href="#services">Fracture</a>
+            <a href="#services">Arthritis</a>
+            <a href="#booking">Online Consultation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-dots" id="heroDots" role="tablist" aria-label="Hero slides"></div>
+    </section>
+
+    <!-- ===================== FEATURE STRIP ===================== -->
+    <section class="feature-strip">
+      <div class="container">
+        <div class="feature-grid">
+          <div class="feature-card" data-reveal data-delay="1">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+            <div><h4>Online Consultation</h4><p>Video consult from home in minutes</p></div>
+          </div>
+          <div class="feature-card" data-reveal data-delay="2">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <div><h4>Instant Appointment</h4><p>Same-day slots with top doctors</p></div>
+          </div>
+          <div class="feature-card" data-reveal data-delay="3">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <div><h4>Verified Doctors</h4><p>Board-certified, experienced surgeons</p></div>
+          </div>
+          <div class="feature-card" data-reveal data-delay="4">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span>
+            <div><h4>Insurance Accepted</h4><p>Cashless claims with 40+ partners</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES / SPECIALITIES ===================== -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Our Specialities</span>
+          <h2>Comprehensive Orthopaedic Care</h2>
+          <p>From advanced surgery to rehabilitation — one place for every bone, joint and muscle concern.</p>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== DOCTORS ===================== -->
+    <section class="section" id="doctors" style="background:var(--surface-soft)">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Featured Specialists</span>
+          <h2>Meet Our Verified Doctors</h2>
+          <p>Highly experienced, patient-loved orthopaedic specialists available across all our clinics.</p>
+        </div>
+        <div class="doctors-grid" id="doctorsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== TODAY'S SCHEDULE ===================== -->
+    <section class="section" id="schedule">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Doctor Availability</span>
+          <h2>Today's Schedule</h2>
+          <p>Live availability for {{TODAY}} — book before the slots fill up.</p>
+        </div>
+        <div class="schedule" data-reveal>
+          <div class="schedule-wrap">
+            <table>
+              <thead>
+                <tr><th>Doctor</th><th>Speciality</th><th>Clinic</th><th>Timing</th><th>Slots</th><th></th></tr>
+              </thead>
+              <tbody id="scheduleBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PACKAGES ===================== -->
+    <section class="section" id="packages" style="background:var(--surface-soft)">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Health Packages</span>
+          <h2>Affordable Bone &amp; Joint Health Plans</h2>
+          <p>Transparent pricing, no hidden costs. Choose a package designed around your needs.</p>
+        </div>
+        <div class="pkg-grid">
+          <div class="pkg-card" data-reveal data-delay="1">
+            <h3>Basic Bone Check</h3>
+            <p class="desc">Essential screening for early detection.</p>
+            <div class="price">₹999 <small>₹1,800</small></div>
+            <ul class="pkg-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Orthopaedic Consultation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Digital X-Ray (1 region)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Bone Density Screening</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Diet &amp; Posture Advice</li>
+            </ul>
+            <a href="#booking" class="btn btn-ghost">Choose Plan</a>
+          </div>
+          <div class="pkg-card featured" data-reveal data-delay="2">
+            <span class="pkg-tag">Most Popular</span>
+            <h3>Complete Joint Care</h3>
+            <p class="desc">Full assessment for active lifestyles.</p>
+            <div class="price">₹2,499 <small style="color:#bcd6ee">₹4,200</small></div>
+            <ul class="pkg-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Senior Specialist Consultation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Full Body Digital X-Ray</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Vitamin D &amp; Calcium Profile</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> 2 Physiotherapy Sessions</li>
+            </ul>
+            <a href="#booking" class="btn btn-accent">Choose Plan</a>
+          </div>
+          <div class="pkg-card" data-reveal data-delay="3">
+            <h3>Surgery &amp; Recovery</h3>
+            <p class="desc">End-to-end support around procedures.</p>
+            <div class="price">₹6,999 <small>₹11,500</small></div>
+            <ul class="pkg-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Pre-Surgery Evaluation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> MRI / CT Scan Included</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> 6 Rehabilitation Sessions</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m20 6-11 11-5-5"/></svg> Dedicated Care Manager</li>
+            </ul>
+            <a href="#booking" class="btn btn-ghost">Choose Plan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WHY / COUNTERS / TIMELINE ===================== -->
+    <section class="section why" id="about">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Why OrthoCare Plus</span>
+          <h2>Trusted by Patients Across the Country</h2>
+          <p>Numbers that reflect our commitment to safe, world-class orthopaedic care.</p>
+        </div>
+        <div class="counters">
+          <div class="counter" data-reveal data-delay="1"><div class="num"><span data-count="120">0</span><span class="suf">K+</span></div><div class="lbl">Successful Treatments</div></div>
+          <div class="counter" data-reveal data-delay="2"><div class="num"><span data-count="15000">0</span><span class="suf">+</span></div><div class="lbl">Joint Replacements</div></div>
+          <div class="counter" data-reveal data-delay="3"><div class="num"><span data-count="98">0</span><span class="suf">%</span></div><div class="lbl">Success Rate</div></div>
+          <div class="counter" data-reveal data-delay="4"><div class="num"><span data-count="6">0</span></div><div class="lbl">Clinic Locations</div></div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item" data-reveal><span class="tl-dot"></span><span class="yr">1998</span><h4>Our Journey Began</h4><p>Founded as a single-doctor orthopaedic clinic dedicated to pain-free movement.</p></div>
+          <div class="tl-item" data-reveal><span class="tl-dot"></span><span class="yr">2008</span><h4>First Joint Replacement Centre</h4><p>Launched a dedicated knee &amp; hip replacement programme with imported implants.</p></div>
+          <div class="tl-item" data-reveal><span class="tl-dot"></span><span class="yr">2016</span><h4>Robotic-Assisted Surgery</h4><p>Among the first in the region to adopt computer-navigated joint surgery.</p></div>
+          <div class="tl-item" data-reveal><span class="tl-dot"></span><span class="yr">2024</span><h4>6 Clinics &amp; Online Care</h4><p>Now serving patients across the city with tele-consultation and home physio.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOCATIONS / MAP ===================== -->
+    <section class="section" id="locations">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Clinic Locations</span>
+          <h2>Find Your Nearest Clinic</h2>
+          <p>Six conveniently located centres with parking, diagnostics and physiotherapy.</p>
+        </div>
+        <div class="loc-layout">
+          <div class="loc-list" id="locList"></div>
+          <div class="map-frame" data-reveal>
+            <iframe id="locMap" title="Clinic location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Banjara+Hills,+Hyderabad&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section" id="testimonials" style="background:var(--surface-soft)">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Patient Reviews</span>
+          <h2>Loved by Thousands of Patients</h2>
+          <p>Real stories from people who got back to doing what they love.</p>
+        </div>
+        <div class="testi-wrap" data-reveal>
+          <div style="overflow:hidden">
+            <div class="testi-track" id="testiTrack"></div>
+          </div>
+          <div class="testi-nav">
+            <button id="testiPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button id="testiNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PARTNERS / INSURANCE / AWARDS ===================== -->
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Trust &amp; Recognition</span>
+          <h2>Insurance Partners, Hospitals &amp; Awards</h2>
+          <p>Cashless treatment with leading insurers and partnerships with top hospitals.</p>
+        </div>
+
+        <h4 style="text-align:center;color:var(--muted);font-family:'Plus Jakarta Sans';font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px" data-reveal>Insurance Accepted</h4>
+        <div class="logo-row" data-reveal style="margin-bottom:34px">
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Star Health</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> HDFC Ergo</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> ICICI Lombard</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Niva Bupa</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Care Health</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Tata AIG</span>
+        </div>
+
+        <h4 style="text-align:center;color:var(--muted);font-family:'Plus Jakarta Sans';font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px" data-reveal>Partner Hospitals</h4>
+        <div class="logo-row" data-reveal>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg> City General</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg> Apex Medical</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg> LifeLine Hospital</span>
+          <span class="logo-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg> Sunrise Health</span>
+        </div>
+
+        <div class="award-grid">
+          <div class="award" data-reveal data-delay="1"><span class="a-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg></span><h4>NABH Accredited</h4><p>Quality &amp; safety certified</p></div>
+          <div class="award" data-reveal data-delay="2"><span class="a-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><h4>Best Ortho Centre</h4><p>Healthcare Awards 2024</p></div>
+          <div class="award" data-reveal data-delay="3"><span class="a-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"/><path d="M8.5 8.5 12 12l3.5-3.5"/></svg></span><h4>ISO 9001:2015</h4><p>Certified processes</p></div>
+          <div class="award" data-reveal data-delay="4"><span class="a-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg></span><h4>Excellence in Surgery</h4><p>Surgical Society 2023</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BOOKING FORM ===================== -->
+    <section class="section booking" id="booking">
+      <div class="container">
+        <div class="booking-layout">
+          <div class="booking-info" data-reveal>
+            <span class="eyebrow">Book Appointment</span>
+            <h2>Schedule Your Visit in 60 Seconds</h2>
+            <p>Pick a doctor, choose a slot and we'll confirm instantly. Online &amp; in-clinic consultations available.</p>
+            <ul>
+              <li><span class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></span><div><strong>Instant Confirmation</strong><span>SMS &amp; email within minutes</span></div></li>
+              <li><span class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><strong>No Long Waiting</strong><span>Time-slot based scheduling</span></div></li>
+              <li><span class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 11h-6M19 8v6"/></svg></span><div><strong>Free Follow-up</strong><span>One complimentary review visit</span></div></li>
+            </ul>
+            <div style="margin-top:24px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 18px;display:flex;gap:12px;align-items:center">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#ff9a8b" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              <div><strong style="color:#fff">24×7 Emergency Helpline</strong><br><a href="tel:+919876500000" style="color:#fff;font-weight:800;font-size:1.2rem">+91 98765 00000</a></div>
+            </div>
+          </div>
+
+          <div class="booking-card" data-reveal data-delay="1">
+            <form id="bookingForm" novalidate>
+              <div id="formInner">
+                <h3>Appointment Details</h3>
+                <p class="sub">Fields marked <span style="color:var(--accent)">*</span> are required.</p>
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="bName">Patient Name <span class="req">*</span></label>
+                    <input class="form-control" id="bName" name="name" type="text" placeholder="Full name" required />
+                    <span class="form-error">Please enter your name.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bPhone">Phone <span class="req">*</span></label>
+                    <input class="form-control" id="bPhone" name="phone" type="tel" inputmode="numeric" placeholder="10-digit mobile" required pattern="[0-9]{10}" maxlength="10" />
+                    <span class="form-error">Enter a valid 10-digit number.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bEmail">Email</label>
+                    <input class="form-control" id="bEmail" name="email" type="email" placeholder="you@email.com" />
+                    <span class="form-error">Enter a valid email.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bAge">Age <span class="req">*</span></label>
+                    <input class="form-control" id="bAge" name="age" type="number" min="0" max="120" placeholder="Age" required />
+                    <span class="form-error">Please enter age.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bGender">Gender <span class="req">*</span></label>
+                    <select class="form-control" id="bGender" name="gender" required>
+                      <option value="">Select</option><option>Male</option><option>Female</option><option>Other</option>
+                    </select>
+                    <span class="form-error">Please select gender.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bDept">Department <span class="req">*</span></label>
+                    <select class="form-control" id="bDept" name="department" required>
+                      <option value="">Select department</option>
+                      <option>Joint Replacement</option><option>Spine Surgery</option><option>Sports Injury</option>
+                      <option>Fracture Care</option><option>Physiotherapy</option><option>Pediatric Orthopaedics</option>
+                    </select>
+                    <span class="form-error">Please choose a department.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bDoctor">Doctor</label>
+                    <select class="form-control" id="bDoctor" name="doctor">
+                      <option value="">Any available</option>
+                    </select>
+                    <span class="form-error"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bLocation">Preferred Location <span class="req">*</span></label>
+                    <select class="form-control" id="bLocation" name="location" required>
+                      <option value="">Select clinic</option>
+                    </select>
+                    <span class="form-error">Please choose a clinic.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bDate">Date <span class="req">*</span></label>
+                    <input class="form-control" id="bDate" name="date" type="date" required />
+                    <span class="form-error">Please pick a date.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="bTime">Time Slot <span class="req">*</span></label>
+                    <select class="form-control" id="bTime" name="time" required>
+                      <option value="">Select slot</option>
+                      <option>09:00 AM – 10:00 AM</option><option>10:00 AM – 11:00 AM</option>
+                      <option>11:00 AM – 12:00 PM</option><option>04:00 PM – 05:00 PM</option>
+                      <option>05:00 PM – 06:00 PM</option><option>06:00 PM – 07:00 PM</option>
+                    </select>
+                    <span class="form-error">Please choose a slot.</span>
+                  </div>
+                  <div class="form-group full">
+                    <label for="bInsurance">Insurance Provider</label>
+                    <select class="form-control" id="bInsurance" name="insurance">
+                      <option value="">Self-pay / None</option>
+                      <option>Star Health</option><option>HDFC Ergo</option><option>ICICI Lombard</option>
+                      <option>Niva Bupa</option><option>Care Health</option><option>Tata AIG</option>
+                    </select>
+                    <span class="form-error"></span>
+                  </div>
+                  <div class="form-group full">
+                    <label for="bSymptoms">Symptoms / Reason for Visit</label>
+                    <textarea class="form-control" id="bSymptoms" name="symptoms" rows="3" placeholder="Briefly describe your concern"></textarea>
+                    <span class="form-error"></span>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-lg btn-submit" id="submitBtn" type="submit">
+                  <span class="spinner" aria-hidden="true"></span>
+                  <span class="label">Confirm Appointment</span>
+                </button>
+                <p id="formError" role="alert" style="display:none;color:#e23b3b;font-size:.9rem;margin-top:12px;text-align:center"></p>
+              </div>
+
+              <!-- success state -->
+              <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+                <div class="success-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></div>
+                <h3>Appointment Requested!</h3>
+                <p style="color:var(--body);margin-bottom:6px">Thank you, <strong id="successName">patient</strong>. Our care team will call you shortly to confirm your slot.</p>
+                <p style="color:var(--body);margin-bottom:18px">Your reference number is <strong id="successRef" style="color:var(--primary-700)">—</strong></p>
+                <button type="button" class="btn btn-ghost" onclick="resetBooking()">Book Another</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HEALTH TIPS CAROUSEL ===================== -->
+    <section class="section" id="tips">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Health Tips</span>
+          <h2>Keep Your Bones &amp; Joints Strong</h2>
+          <p>Simple, doctor-approved habits for lifelong mobility.</p>
+        </div>
+        <div class="tips-carousel" id="tipsCarousel"></div>
+      </div>
+    </section>
+
+    <!-- ===================== VIDEO + GALLERY ===================== -->
+    <section class="section" id="gallery" style="background:var(--surface-soft)">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Inside OrthoCare Plus</span>
+          <h2>Our Facility &amp; Patient Stories</h2>
+          <p>Take a look at our modern infrastructure and hear from our patients.</p>
+        </div>
+        <div class="media-grid">
+          <div class="video-box" data-reveal>
+            <img src="/images/hero-3.jpg" alt="OrthoCare Plus medical team" width="1600" height="1024" loading="lazy" />
+            <button class="play" aria-label="Play facility tour video" onclick="alert('Video player would open here.')">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="v-cap"><h3>A Tour of Our Hospital</h3><p>Modern theatres, digital imaging &amp; recovery suites</p></div>
+          </div>
+          <div class="gallery" data-reveal data-delay="1">
+            <a href="#gallery"><img src="/images/hero-1.jpg" alt="Doctor consulting a patient" width="800" height="512" loading="lazy" /></a>
+            <a href="#gallery"><img src="/images/hero-2.jpg" alt="Physiotherapy rehabilitation session" width="800" height="512" loading="lazy" /></a>
+            <a href="#gallery"><img src="/images/doc-3.jpg" alt="Spine surgeon" width="512" height="512" loading="lazy" /></a>
+            <a href="#gallery"><img src="/images/doc-2.jpg" alt="Orthopaedic surgeon" width="512" height="512" loading="lazy" /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BLOG ===================== -->
+    <section class="section" id="blog">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Health Articles</span>
+          <h2>Latest From Our Doctors</h2>
+          <p>Expert insights on prevention, treatment and recovery.</p>
+        </div>
+        <div class="blog-grid" id="blogGrid"></div>
+        <div style="text-align:center;margin-top:36px" data-reveal>
+          <a href="#blog" class="btn btn-ghost btn-lg">View All Articles</a>
+          <a href="#brochure" class="btn btn-primary btn-lg" onclick="downloadBrochure(event)">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Brochure
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section" id="faq" style="background:var(--surface-soft)">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know before your visit.</p>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </div>
+    </section>
+
+    <!-- ===================== NEWSLETTER ===================== -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="newsletter-card" data-reveal>
+          <div>
+            <h2>Get Health Tips in Your Inbox</h2>
+            <p>Monthly orthopaedic advice, offers &amp; new doctor updates. No spam, ever.</p>
+          </div>
+          <form class="news-form" onsubmit="subscribeNews(event)">
+            <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+            <button class="btn btn-accent btn-lg" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" id="login">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <span class="logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v4M8 6c-2 0-3 1-3 3s1 3 3 3M16 2v4M16 6c2 0 3 1 3 3s-1 3-3 3M8 12h8M8 18v4M8 18c-2 0-3-1-3-3M16 18v4M16 18c2 0 3-1 3-3"/></svg>
+            </span>
+            <span>OrthoCare<small>Plus · Bone &amp; Joint</small></span>
+          </div>
+          <p class="about">OrthoCare Plus is a NABH-accredited orthopaedic hospital network delivering world-class joint, spine and sports-injury care with compassion since 1998.</p>
+          <div class="socials">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.6l-5.2-6.8L5.3 22H2l7.8-8.9L1.5 2h6.8l4.7 6.2L18.9 2Zm-1.1 18h1.8L7.3 3.8H5.4L17.8 20Z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.5-5.3a2.7 2.7 0 0 0-1.9-1.9C18.9 4.3 12 4.3 12 4.3s-6.9 0-8.6.5A2.7 2.7 0 0 0 1.5 6.7C1 8.4 1 12 1 12s0 3.6.5 5.3a2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9C23 15.6 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#doctors">Our Doctors</a></li>
+            <li><a href="#packages">Health Packages</a></li>
+            <li><a href="#blog">Health Articles</a></li>
+            <li><a href="#booking">Book Appointment</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Departments</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Joint Replacement</a></li>
+            <li><a href="#services">Spine Surgery</a></li>
+            <li><a href="#services">Sports Injury</a></li>
+            <li><a href="#services">Fracture Care</a></li>
+            <li><a href="#services">Physiotherapy</a></li>
+            <li><a href="#services">Trauma Care</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Get In Touch</h4>
+          <ul class="footer-contact">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> 12 Wellness Avenue, Banjara Hills, Hyderabad – 500034</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> <a href="tel:+919876543210">+91 98765 43210</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg> <a href="mailto:care@orthocareplus.com">care@orthocareplus.com</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat: 8 AM – 9 PM · Sun: 9 AM – 1 PM</li>
+          </ul>
+          <div class="footer-map">
+            <iframe title="OrthoCare Plus location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Banjara+Hills,+Hyderabad&output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> OrthoCare Plus. All rights reserved.</span>
+        <div class="fb-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#blog" onclick="downloadReports(event)">Download Reports</a>
+          <a href="#login">Patient Login</a>
+          <a href="#login">Doctor Login</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== FLOATING ACTIONS ===================== -->
+  <div class="fab-stack">
+    <a class="fab call" href="tel:+919876500000" aria-label="Emergency call"><span class="tip">Emergency Call</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></a>
+    <button class="fab chat" id="chatToggle" aria-label="Open live chat"><span class="tip">Live Chat</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></button>
+    <a class="fab wa" href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="ping"></span><span class="tip">WhatsApp</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.207zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg></a>
+  </div>
+
+  <!-- back to top -->
+  <button class="fab top" id="backTop" aria-label="Back to top" style="position:fixed;right:18px;bottom:148px;z-index:801">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- live chat popup (UI only) -->
+  <div class="chat-pop" id="chatPop" role="dialog" aria-label="Live chat" aria-hidden="true">
+    <div class="chat-head">
+      <span class="ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+      <div><strong>OrthoCare Assistant</strong><span>● Online · replies in ~1 min</span></div>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg">👋 Hi! I'm here to help. Would you like to <strong>book an appointment</strong> or talk to a doctor?</div>
+    </div>
+    <form class="chat-foot" onsubmit="sendChat(event)">
+      <input type="text" id="chatInput" placeholder="Type a message…" aria-label="Type a message" />
+      <button type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+    </form>
+  </div>
+
+  <!-- mobile sticky CTA -->
+  <div class="sticky-cta">
+    <a href="tel:+919876543210" class="btn btn-ghost">Call Now</a>
+    <a href="#booking" class="btn btn-primary">Book Appointment</a>
+  </div>
+
+  <script>
+  /* =========================================================
+     DATA
+  ========================================================= */
+  const SERVICES = [
+    { t:"Joint Replacement", d:"Advanced knee, hip & shoulder replacement with robotic precision and faster recovery.", icon:'<path d="M8 2v4M8 6c-2 0-3 1-3 3s1 3 3 3M16 2v4M16 6c2 0 3 1 3 3s-1 3-3 3M8 12h8M8 18v4M8 18c-2 0-3-1-3-3M16 18v4M16 18c2 0 3-1 3-3"/>' },
+    { t:"Sports Injury", d:"Specialised care for ligament tears, ACL repair and athletic rehabilitation.", icon:'<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>' },
+    { t:"Spine Surgery", d:"Minimally invasive treatment for back pain, disc problems and spinal disorders.", icon:'<path d="M12 3v18M9 6h6M8 10h8M9 14h6M8 18h8"/>' },
+    { t:"Fracture Care", d:"Rapid diagnosis and expert management of simple to complex fractures.", icon:'<path d="M6 4v6a3 3 0 0 0 3 3M18 20v-6a3 3 0 0 0-3-3M9 13l6-2"/><circle cx="6" cy="4" r="1.6"/><circle cx="18" cy="20" r="1.6"/>' },
+    { t:"Arthroscopy", d:"Keyhole surgery for joints — smaller scars, less pain, quicker healing.", icon:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>' },
+    { t:"Physiotherapy", d:"Personalised rehab programs to restore strength, flexibility and movement.", icon:'<path d="M4 22V12a8 8 0 0 1 16 0v10M12 8v4M9 22v-5M15 22v-5"/>' },
+    { t:"Pain Management", d:"Targeted, non-surgical relief for chronic joint, nerve and muscle pain.", icon:'<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>' },
+    { t:"Pediatric Orthopaedics", d:"Gentle, specialised bone & growth care for infants, children and teens.", icon:'<circle cx="12" cy="7" r="4"/><path d="M5.5 22a6.5 6.5 0 0 1 13 0"/>' },
+    { t:"Trauma Care", d:"24×7 emergency orthopaedic trauma team for accidents and critical injuries.", icon:'<path d="M11 2 3 14h7l-1 8 8-12h-7l1-8Z"/>' },
+  ];
+
+  const DOCTORS = [
+    { name:"Dr. James Anderson", img:"/images/doc-1.jpg", qual:"MBBS, MS (Ortho), Fellowship (UK)", exp:"28 yrs", spec:"Joint Replacement", langs:["English","Hindi"], rating:"4.9", avail:"Available Today" },
+    { name:"Dr. Priya Sharma", img:"/images/doc-2.jpg", qual:"MBBS, MS, DNB (Orthopaedics)", exp:"16 yrs", spec:"Sports Injury", langs:["English","Hindi","Telugu"], rating:"4.8", avail:"Available Today" },
+    { name:"Dr. Michael Anderson", img:"/images/doc-3.jpg", qual:"MBBS, MCh (Spine Surgery)", exp:"21 yrs", spec:"Spine Surgery", langs:["English","Hindi"], rating:"4.9", avail:"Available Today" },
+    { name:"Dr. Anjali Mehta", img:"/images/doc-4.jpg", qual:"BPT, MPT (Ortho Physiotherapy)", exp:"12 yrs", spec:"Physiotherapy", langs:["English","Hindi","Marathi"], rating:"4.9", avail:"Available Today" },
+  ];
+
+  const CLINICS = [
+    { name:"OrthoCare Plus — Banjara Hills", addr:"12 Wellness Avenue, Banjara Hills, Hyderabad – 500034", hours:"8 AM – 9 PM", dist:"Main Centre", q:"Banjara+Hills,+Hyderabad" },
+    { name:"OrthoCare Plus — Gachibowli", addr:"45 Tech Park Road, Gachibowli, Hyderabad – 500032", hours:"9 AM – 8 PM", dist:"8.4 km away", q:"Gachibowli,+Hyderabad" },
+    { name:"OrthoCare Plus — Secunderabad", addr:"7 Parade Grounds Rd, Secunderabad – 500003", hours:"8 AM – 8 PM", dist:"11.2 km away", q:"Secunderabad" },
+    { name:"OrthoCare Plus — Kondapur", addr:"22 Botanical Garden Rd, Kondapur, Hyderabad – 500084", hours:"9 AM – 7 PM", dist:"13.5 km away", q:"Kondapur,+Hyderabad" },
+  ];
+
+  const TESTIMONIALS = [
+    { name:"Ravi Kumar", role:"Knee Replacement Patient", img:"/images/doc-1.jpg", q:"After my knee replacement I was walking pain-free within weeks. The surgeons and physio team were exceptional throughout my recovery." },
+    { name:"Sneha Reddy", role:"ACL Reconstruction", img:"/images/doc-2.jpg", q:"As an amateur athlete, my ACL tear felt career-ending. OrthoCare Plus got me back on the field stronger than before. Truly grateful!" },
+    { name:"Mohammed Irfan", role:"Spine Surgery Patient", img:"/images/doc-3.jpg", q:"Years of back pain gone after minimally invasive spine surgery. Clean facility, caring staff and honest advice. Highly recommended." },
+    { name:"Lakshmi Nair", role:"Mother of Patient", img:"/images/doc-4.jpg", q:"They handled my son's fracture with so much patience and care. The pediatric ortho team made a scary time feel completely safe." },
+  ];
+
+  const TIPS = [
+    { t:"Stay Active Daily", d:"30 minutes of low-impact exercise keeps joints lubricated and muscles strong.", icon:'<path d="M4 22V12a8 8 0 0 1 16 0v10"/>' },
+    { t:"Mind Your Posture", d:"Keep your spine neutral while sitting and lifting to prevent back strain.", icon:'<path d="M12 3v18M9 6h6M8 18h8"/>' },
+    { t:"Calcium & Vitamin D", d:"Fuel bone density with dairy, greens and safe sunlight exposure.", icon:'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2"/>' },
+    { t:"Warm Up First", d:"Always stretch before sports to protect ligaments from sudden injury.", icon:'<path d="M13 2 3 14h7l-1 8 8-12h-7l1-8Z"/>' },
+    { t:"Maintain Healthy Weight", d:"Every extra kilo adds 4× pressure on your knees while walking.", icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>' },
+  ];
+
+  const BLOGS = [
+    { cat:"Joint Health", t:"5 Early Signs You May Need a Knee Replacement", d:"Persistent pain, stiffness and reduced mobility could signal it's time to consult a specialist.", img:"/images/hero-1.jpg", date:"Jun 24, 2026", read:"5 min" },
+    { cat:"Recovery", t:"Physiotherapy After Surgery: What to Expect", d:"A week-by-week guide to safe rehabilitation and getting back to daily life faster.", img:"/images/hero-2.jpg", date:"Jun 18, 2026", read:"6 min" },
+    { cat:"Sports", t:"Preventing ACL Injuries: A Coach's Checklist", d:"Simple warm-up and strength routines that dramatically reduce knee ligament tears.", img:"/images/hero-3.jpg", date:"Jun 10, 2026", read:"4 min" },
+  ];
+
+  const FAQS = [
+    { q:"How do I book an appointment?", a:"You can book instantly using the appointment form on this page, call us at +91 98765 43210, or message us on WhatsApp. You'll receive an SMS and email confirmation within minutes." },
+    { q:"Do you offer online video consultations?", a:"Yes. Select 'Online Consultation' when booking and you'll receive a secure video link. Online consults are ideal for follow-ups, second opinions and report reviews." },
+    { q:"Is my health insurance accepted?", a:"We provide cashless treatment with 40+ insurers including Star Health, HDFC Ergo, ICICI Lombard, Niva Bupa, Care Health and Tata AIG. Our team helps you with the entire claim process." },
+    { q:"What should I bring for my first visit?", a:"Please carry a valid photo ID, your insurance card (if applicable), and any previous X-rays, MRI scans or medical reports related to your condition." },
+    { q:"Do you provide emergency orthopaedic care?", a:"Absolutely. Our 24×7 trauma team handles fractures, dislocations and accidents. Call our emergency helpline at +91 98765 00000 for immediate assistance." },
+    { q:"How long is the recovery after joint replacement?", a:"Most patients walk with support within 1–2 days and resume daily activities in 4–6 weeks, supported by our structured physiotherapy programme. Recovery varies per individual." },
+  ];
+
+  /* =========================================================
+     UTILITIES
+  ========================================================= */
+  const $  = (s, p=document) => p.querySelector(s);
+  const $$ = (s, p=document) => [...p.querySelectorAll(s)];
+  const svg = (paths, w=24) => `<svg viewBox="0 0 24 24" width="${w}" height="${w}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>`;
+
+  /* =========================================================
+     RENDER: SERVICES
+  ========================================================= */
+  $("#servicesGrid").innerHTML = SERVICES.map((s,i)=>`
+    <article class="service-card" data-reveal data-delay="${(i%3)+1}">
+      <div class="s-ic">${svg(s.icon,30)}</div>
+      <h3>${s.t}</h3>
+      <p>${s.d}</p>
+      <a href="#booking" class="more">Book Consultation ${svg('<path d="m9 18 6-6-6-6"/>',16)}</a>
+    </article>`).join("");
+
+  /* =========================================================
+     RENDER: DOCTORS
+  ========================================================= */
+  const starIcon = svg('<path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/>',13);
+  $("#doctorsGrid").innerHTML = DOCTORS.map((d,i)=>`
+    <article class="doc-card" data-reveal data-delay="${(i%4)+1}">
+      <div class="doc-photo">
+        <img src="${d.img}" alt="${d.name}, ${d.spec}" width="600" height="600" loading="lazy" />
+        <span class="doc-avail"><span class="d"></span>${d.avail}</span>
+        <span class="doc-rating">${starIcon}${d.rating}</span>
+      </div>
+      <div class="doc-body">
+        <h3>${d.name}</h3>
+        <div class="doc-spec">${d.spec}</div>
+        <div class="doc-meta">
+          <div>${svg('<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',15)} ${d.qual}</div>
+          <div>${svg('<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',15)} ${d.exp} experience</div>
+        </div>
+        <div class="doc-langs">${d.langs.map(l=>`<span>${l}</span>`).join("")}</div>
+        <div class="doc-actions">
+          <a href="#booking" class="btn btn-primary" onclick="preselectDoctor('${d.name}')">Book Appointment</a>
+          <a href="#doctors" class="btn btn-ghost" aria-label="View ${d.name} profile">${svg('<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/>',18)}</a>
+        </div>
+      </div>
+    </article>`).join("");
+
+  /* =========================================================
+     RENDER: TODAY'S SCHEDULE
+  ========================================================= */
+  const slots = [
+    { s:"open", t:"8 slots" }, { s:"few", t:"3 slots" }, { s:"open", t:"6 slots" }, { s:"full", t:"Full" }
+  ];
+  $("#scheduleBody").innerHTML = DOCTORS.map((d,i)=>`
+    <tr>
+      <td><strong>${d.name}</strong></td>
+      <td>${d.spec}</td>
+      <td>${CLINICS[i%CLINICS.length].name.replace("OrthoCare Plus — ","")}</td>
+      <td>${["9 AM – 1 PM","10 AM – 2 PM","11 AM – 4 PM","4 PM – 8 PM"][i]}</td>
+      <td><span class="badge-slot ${slots[i].s}">${slots[i].t}</span></td>
+      <td>${slots[i].s==="full" ? '<span style="color:var(--muted);font-size:.85rem">Waitlist</span>' : `<a href="#booking" class="btn btn-primary" style="padding:8px 16px;font-size:.8rem" onclick="preselectDoctor('${d.name}')">Book</a>`}</td>
+    </tr>`).join("");
+
+  /* today's date label */
+  const today = new Date();
+  const dateOpts = { weekday:'long', day:'numeric', month:'long' };
+  $$('p').forEach(p=>{ if(p.innerHTML.includes('{{TODAY}}')) p.innerHTML = p.innerHTML.replace('{{TODAY}}', today.toLocaleDateString('en-IN', dateOpts)); });
+
+  /* =========================================================
+     RENDER: LOCATIONS + MAP
+  ========================================================= */
+  const locList = $("#locList");
+  const locMap = $("#locMap");
+  locList.innerHTML = CLINICS.map((c,i)=>`
+    <div class="loc-card ${i===0?'active':''}" data-q="${c.q}" data-i="${i}" data-reveal>
+      <h3>${svg('<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/>',18)} ${c.name}</h3>
+      <p class="addr">${c.addr}</p>
+      <div class="loc-info">
+        <span class="open">${svg('<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',14)} Open · ${c.hours}</span>
+        <span>${svg('<path d="m5 12 7-7 7 7M12 5v14"/>',14)} ${c.dist}</span>
+      </div>
+      <div class="loc-actions">
+        <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=${c.q}" target="_blank" rel="noopener">${svg('<path d="M9 11 3 21l18-9L3 3l6 8h12"/>',16)} Get Directions</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=${c.q}" target="_blank" rel="noopener">Open Maps</a>
+      </div>
+    </div>`).join("");
+
+  locList.addEventListener("click", e=>{
+    const card = e.target.closest(".loc-card");
+    if(!card || e.target.closest("a")) return;
+    $$(".loc-card").forEach(c=>c.classList.remove("active"));
+    card.classList.add("active");
+    locMap.src = `https://www.google.com/maps?q=${card.dataset.q}&output=embed`;
+  });
+
+  /* =========================================================
+     RENDER: TESTIMONIALS SLIDER
+  ========================================================= */
+  const track = $("#testiTrack");
+  track.innerHTML = TESTIMONIALS.map(t=>`
+    <div class="testi-slide">
+      <div class="testi-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+        <p class="q">${t.q}</p>
+        <div class="testi-person">
+          <img src="${t.img}" alt="${t.name}" width="54" height="54" loading="lazy" />
+          <div class="nm">
+            <strong>${t.name} ${svg('<path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/>',16)}</strong>
+            <span>${t.role} · Verified Patient</span>
+          </div>
+        </div>
+      </div>
+    </div>`).join("");
+  let testiIdx = 0;
+  const testiCount = TESTIMONIALS.length;
+  function goTesti(n){ testiIdx = (n+testiCount)%testiCount; track.style.transform = `translateX(-${testiIdx*100}%)`; }
+  $("#testiNext").addEventListener("click", ()=>{ goTesti(testiIdx+1); resetTestiAuto(); });
+  $("#testiPrev").addEventListener("click", ()=>{ goTesti(testiIdx-1); resetTestiAuto(); });
+  let testiAuto = setInterval(()=>goTesti(testiIdx+1), 5500);
+  function resetTestiAuto(){ clearInterval(testiAuto); testiAuto = setInterval(()=>goTesti(testiIdx+1), 5500); }
+
+  /* =========================================================
+     RENDER: HEALTH TIPS
+  ========================================================= */
+  $("#tipsCarousel").innerHTML = TIPS.map(t=>`
+    <div class="tip-card">
+      <div class="t-ic">${svg(t.icon,24)}</div>
+      <h4>${t.t}</h4>
+      <p>${t.d}</p>
+    </div>`).join("");
+
+  /* =========================================================
+     RENDER: BLOG
+  ========================================================= */
+  $("#blogGrid").innerHTML = BLOGS.map((b,i)=>`
+    <article class="blog-card" data-reveal data-delay="${i+1}">
+      <div class="b-img"><img src="${b.img}" alt="${b.t}" width="600" height="375" loading="lazy" /></div>
+      <div class="blog-body">
+        <span class="b-cat">${b.cat}</span>
+        <h3>${b.t}</h3>
+        <p>${b.d}</p>
+        <div class="b-meta">
+          <span>${svg('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',14)} ${b.date}</span>
+          <span>${svg('<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',14)} ${b.read} read</span>
+        </div>
+      </div>
+    </article>`).join("");
+
+  /* =========================================================
+     RENDER: FAQ ACCORDION
+  ========================================================= */
+  $("#faqList").innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item" data-reveal>
+      <button class="faq-q" aria-expanded="false" aria-controls="faq-a-${i}">
+        ${f.q}
+        <span class="pm">${svg('<path d="M12 5v14M5 12h14"/>',18)}</span>
+      </button>
+      <div class="faq-a" id="faq-a-${i}"><p>${f.a}</p></div>
+    </div>`).join("");
+  $("#faqList").addEventListener("click", e=>{
+    const btn = e.target.closest(".faq-q");
+    if(!btn) return;
+    const item = btn.parentElement;
+    const ans = item.querySelector(".faq-a");
+    const isOpen = item.classList.contains("open");
+    $$(".faq-item").forEach(it=>{ it.classList.remove("open"); it.querySelector(".faq-a").style.maxHeight=null; it.querySelector(".faq-q").setAttribute("aria-expanded","false"); });
+    if(!isOpen){ item.classList.add("open"); ans.style.maxHeight = ans.scrollHeight + "px"; btn.setAttribute("aria-expanded","true"); }
+  });
+
+  /* =========================================================
+     POPULATE BOOKING SELECTS
+  ========================================================= */
+  $("#bDoctor").innerHTML = '<option value="">Any available</option>' + DOCTORS.map(d=>`<option>${d.name}</option>`).join("");
+  $("#bLocation").innerHTML = '<option value="">Select clinic</option>' + CLINICS.map(c=>`<option>${c.name}</option>`).join("");
+  /* min date = today */
+  $("#bDate").min = today.toISOString().split("T")[0];
+
+  function preselectDoctor(name){
+    const sel = $("#bDoctor");
+    [...sel.options].forEach(o=>{ if(o.value===name) sel.value=name; });
+    const doc = DOCTORS.find(d=>d.name===name);
+    if(doc) $("#bDept").value = [...$("#bDept").options].some(o=>o.value===doc.spec) ? doc.spec : $("#bDept").value;
+  }
+
+  /* =========================================================
+     BOOKING FORM VALIDATION + SUBMIT
+  ========================================================= */
+  const form = $("#bookingForm");
+  function validateField(field){
+    const group = field.closest(".form-group");
+    let valid = true;
+    if(field.hasAttribute("required") && !field.value.trim()) valid = false;
+    if(field.id==="bPhone" && field.value && !/^[0-9]{10}$/.test(field.value)) valid = false;
+    if(field.id==="bEmail" && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) valid = false;
+    group.classList.toggle("invalid", !valid);
+    return valid;
+  }
+  form.addEventListener("input", e=>{ if(e.target.classList.contains("form-control")) validateField(e.target); });
+
+  form.addEventListener("submit", async e=>{
+    e.preventDefault();
+    const fields = $$(".form-control", form);
+    let ok = true;
+    fields.forEach(f=>{ if(!validateField(f)) ok=false; });
+    if(!ok){ form.querySelector(".invalid .form-control")?.focus(); return; }
+
+    const btn = $("#submitBtn");
+    const errEl = $("#formError");
+    errEl.style.display = "none";
+    btn.classList.add("loading");
+    btn.disabled = true;
+
+    const payload = {
+      name: $("#bName").value.trim(),
+      phone: $("#bPhone").value.trim(),
+      email: $("#bEmail").value.trim(),
+      age: $("#bAge").value.trim(),
+      gender: $("#bGender").value,
+      department: $("#bDept").value,
+      doctor: $("#bDoctor").value,
+      location: $("#bLocation").value,
+      date: $("#bDate").value,
+      time: $("#bTime").value,
+      insurance: $("#bInsurance").value,
+      symptoms: $("#bSymptoms").value.trim(),
+    };
+
+    try {
+      const res = await fetch("/api/public/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(()=>({}));
+      if(!res.ok || !data.ok){
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+      $("#successName").textContent = payload.name || "patient";
+      $("#successRef").textContent = data.reference || "—";
+      $("#formInner").style.display = "none";
+      $("#formSuccess").classList.add("show");
+    } catch (err) {
+      errEl.textContent = err && err.message ? err.message : "Network error. Please try again.";
+      errEl.style.display = "block";
+    } finally {
+      btn.classList.remove("loading");
+      btn.disabled = false;
+    }
+  });
+
+  function resetBooking(){
+    form.reset();
+    $("#bDate").min = today.toISOString().split("T")[0];
+    $$(".form-group").forEach(g=>g.classList.remove("invalid"));
+    $("#formSuccess").classList.remove("show");
+    $("#formInner").style.display = "block";
+  }
+
+  /* hero search -> jump to booking */
+  function goBooking(e){ e.preventDefault(); document.getElementById("booking").scrollIntoView({behavior:"smooth"}); }
+
+  /* =========================================================
+     NAVBAR: scroll state, mobile menu, scroll progress
+  ========================================================= */
+  const nav = $("#nav");
+  const progress = $("#scrollProgress");
+  const backTop = $("#backTop");
+  function onScroll(){
+    const y = window.scrollY;
+    nav.classList.toggle("scrolled", y > 10);
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (h>0 ? (y/h)*100 : 0) + "%";
+    backTop.classList.toggle("show", y > 600);
+  }
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+
+  const menuToggle = $("#menuToggle");
+  const navLinks = $("#navLinks");
+  const navOverlay = $("#navOverlay");
+  function toggleMenu(open){
+    navLinks.classList.toggle("open", open);
+    navOverlay.classList.toggle("open", open);
+    menuToggle.setAttribute("aria-expanded", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  menuToggle.addEventListener("click", ()=>toggleMenu(!navLinks.classList.contains("open")));
+  navOverlay.addEventListener("click", ()=>toggleMenu(false));
+  $$("#navLinks a").forEach(a=>a.addEventListener("click", ()=>toggleMenu(false)));
+
+  backTop.addEventListener("click", ()=>window.scrollTo({top:0, behavior:"smooth"}));
+
+  /* =========================================================
+     HERO SLIDER
+  ========================================================= */
+  const heroSlides = $$(".hero-slide");
+  const heroDots = $("#heroDots");
+  heroSlides.forEach((_,i)=>{
+    const b = document.createElement("button");
+    b.className = i===0 ? "active" : "";
+    b.setAttribute("aria-label", `Show slide ${i+1}`);
+    b.addEventListener("click", ()=>setHero(i));
+    heroDots.appendChild(b);
+  });
+  let heroIdx = 0;
+  function setHero(i){
+    heroIdx = i;
+    heroSlides.forEach((s,n)=>s.classList.toggle("active", n===i));
+    $$("#heroDots button").forEach((d,n)=>d.classList.toggle("active", n===i));
+  }
+  setInterval(()=>setHero((heroIdx+1)%heroSlides.length), 5000);
+
+  /* =========================================================
+     COUNTERS (animated)
+  ========================================================= */
+  function animateCount(el){
+    const target = parseFloat(el.dataset.count);
+    const decimals = parseInt(el.dataset.decimals || "0", 10);
+    const dur = 1600;
+    const start = performance.now();
+    function tick(now){
+      const p = Math.min((now-start)/dur, 1);
+      const eased = 1 - Math.pow(1-p, 3);
+      const val = target * eased;
+      el.textContent = decimals ? val.toFixed(decimals) : Math.floor(val).toLocaleString("en-IN");
+      if(p<1) requestAnimationFrame(tick); else el.textContent = decimals ? target.toFixed(decimals) : target.toLocaleString("en-IN");
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* =========================================================
+     SCROLL REVEAL + COUNTER OBSERVER
+  ========================================================= */
+  const revealObs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){ en.target.classList.add("in"); revealObs.unobserve(en.target); }
+    });
+  }, { threshold:0.12, rootMargin:"0px 0px -40px 0px" });
+  function observeReveals(){ $$("[data-reveal]:not(.in)").forEach(el=>revealObs.observe(el)); }
+  observeReveals();
+
+  const countObs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ animateCount(en.target); countObs.unobserve(en.target); } });
+  }, { threshold:0.5 });
+  $$("[data-count]").forEach(el=>countObs.observe(el));
+
+  /* =========================================================
+     RIPPLE EFFECT on buttons
+  ========================================================= */
+  document.addEventListener("click", e=>{
+    const btn = e.target.closest(".btn");
+    if(!btn) return;
+    const r = document.createElement("span");
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    r.className = "ripple";
+    r.style.width = r.style.height = size + "px";
+    r.style.left = (e.clientX - rect.left - size/2) + "px";
+    r.style.top = (e.clientY - rect.top - size/2) + "px";
+    btn.appendChild(r);
+    setTimeout(()=>r.remove(), 600);
+  });
+
+  /* =========================================================
+     LIVE CHAT (UI only)
+  ========================================================= */
+  const chatPop = $("#chatPop");
+  $("#chatToggle").addEventListener("click", ()=>{
+    const open = !chatPop.classList.contains("open");
+    chatPop.classList.toggle("open", open);
+    chatPop.setAttribute("aria-hidden", !open);
+    if(open) setTimeout(()=>$("#chatInput").focus(), 200);
+  });
+  function sendChat(e){
+    e.preventDefault();
+    const input = $("#chatInput");
+    const txt = input.value.trim();
+    if(!txt) return;
+    const body = $("#chatBody");
+    const userMsg = document.createElement("div");
+    userMsg.className = "chat-msg";
+    userMsg.style.cssText = "background:var(--primary);color:#fff;border-radius:14px 14px 4px 14px;margin-left:auto;max-width:85%";
+    userMsg.textContent = txt;
+    body.appendChild(userMsg);
+    input.value = "";
+    body.scrollTop = body.scrollHeight;
+    setTimeout(()=>{
+      const bot = document.createElement("div");
+      bot.className = "chat-msg";
+      bot.innerHTML = "Thanks for your message! 🙏 To book quickly, tap <a href='#booking' style='color:var(--teal-600);font-weight:700'>Book Appointment</a> or call <a href='tel:+919876543210' style='color:var(--teal-600);font-weight:700'>+91 98765 43210</a>.";
+      body.appendChild(bot);
+      body.scrollTop = body.scrollHeight;
+    }, 800);
+  }
+
+  /* =========================================================
+     MISC ACTIONS
+  ========================================================= */
+  function subscribeNews(e){ e.preventDefault(); e.target.reset(); alert("🎉 Subscribed! Health tips are on the way to your inbox."); }
+  function downloadBrochure(e){ e.preventDefault(); alert("📄 Your brochure download will begin shortly."); }
+  function downloadReports(e){ e.preventDefault(); alert("Please log in to the patient portal to download your reports."); }
+
+  /* footer year */
+  $("#year").textContent = new Date().getFullYear();
+
+  /* smooth in-page anchor links */
+  $$('a[href^="#"]').forEach(a=>{
+    a.addEventListener("click", function(ev){
+      const id = this.getAttribute("href");
+      if(id.length>1){ const el = document.querySelector(id); if(el){ ev.preventDefault(); el.scrollIntoView({behavior:"smooth"}); } }
+    });
+  });
+  </script>
+</body>
+</html>

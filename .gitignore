@@ -1,0 +1,14 @@
+# Ignore root Node.js files
+node_modules/
+package-lock.json
+
+# Ignore backend dependencies
+backend/node_modules/
+backend/.env
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
