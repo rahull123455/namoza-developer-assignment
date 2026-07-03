@@ -1,64 +1,111 @@
-# Task 1 - GTM Event Schema
+# GTM Event Schema
 
-## Project
+## Event Name
 
-Client: OrthoNow
+| Event | Trigger | Purpose |
+|--------|----------|----------|
+| page_view | Landing page loaded | Track page visits |
+| consultation_form_started | User clicks inside the consultation form | Measure engagement |
+| consultation_form_submitted | User successfully submits the consultation form | Primary conversion event |
+| consultation_form_failed | Form validation or API failure | Track submission failures |
+| phone_click | User clicks the phone number | Measure call intent |
 
-Purpose:
-Implement Google Tag Manager (GTM) and Google Analytics 4 (GA4) event tracking to measure user interactions across the OrthoNow website and optimize marketing performance.
+---
 
-| Event Name | Trigger Type | Key Parameters | GA4 Report / Audience |
-|------------|--------------|----------------|------------------------|
-| appointment_step_1 | Custom Event | clinic_location, specialty, page_location | Funnel Exploration |
-| appointment_step_2 | Custom Event | patient_name, preferred_date, clinic_location | Funnel Exploration |
-| appointment_step_3 | Custom Event | booking_id, clinic_location, specialty | Conversion Report |
-| consultation_form_submitted | Form Submission | page_location, form_name, source | Conversions |
-| call_now_click | Click Trigger | phone_number, page_location, clinic_name | Engagement |
-| whatsapp_click | Click Trigger | page_location, device_type, campaign | Engagement |
-| patient_guide_download | Form Submit + File Download | guide_name, phone_number, page_location | Lead Generation |
-| clinic_page_view | Page View | clinic_location, page_title, page_location | Landing Pages |
-| blog_scroll_25 | Scroll Depth | article_title, scroll_percent, page_location | Content Engagement |
-| blog_scroll_50 | Scroll Depth | article_title, scroll_percent, page_location | Content Engagement |
-| blog_scroll_75 | Scroll Depth | article_title, scroll_percent, page_location | Content Engagement |
-| blog_scroll_100 | Scroll Depth | article_title, scroll_percent, page_location | Content Engagement |
+# Event Parameters
 
-## Booking Funnel Tracking
+## consultation_form_submitted
 
-### Step 1
+| Parameter | Type | Description |
+|------------|------|-------------|
+| event | String | consultation_form_submitted |
+| fullName | String | User's full name |
+| phone | String | User's phone number |
+| clinic | String | Selected clinic |
+| page_url | String | Current page URL |
+| timestamp | String | Event timestamp |
+
+---
+
+## Sample dataLayer Push
 
 ```javascript
 window.dataLayer = window.dataLayer || [];
 
 window.dataLayer.push({
-  event: "booking_step_complete",
-  step_number: 1,
-  step_name: "location_specialty_selected",
-  clinic_location: selectedClinic,
-  specialty: selectedSpecialty
+
+    event: "consultation_form_submitted",
+
+    fullName: "Vinayak Kumar",
+
+    phone: "9876543210",
+
+    clinic: "Bengaluru",
+
+    page_url: window.location.href,
+
+    timestamp: new Date().toISOString()
+
 });
 ```
 
-### Step 2
+---
 
-```javascript
-window.dataLayer.push({
-  event: "booking_step_complete",
-  step_number: 2,
-  step_name: "patient_details_entered",
-  patient_name: patientName,
-  preferred_date: selectedDate,
-  phone_number: patientPhone
-});
+# GTM Trigger
+
+**Trigger Type**
+
+Custom Event
+
+**Event Name**
+
+```
+consultation_form_submitted
 ```
 
-### Step 3
+---
 
-```javascript
-window.dataLayer.push({
-  event: "booking_step_complete",
-  step_number: 3,
-  step_name: "booking_confirmed",
-  booking_id: bookingId,
-  confirmation_status: "Success"
-});
-```
+# GTM Variables
+
+- Event
+- fullName
+- phone
+- clinic
+- page_url
+- timestamp
+
+---
+
+# Tags
+
+Google Analytics 4 Event
+
+Google Ads Conversion
+
+Meta Pixel (Optional)
+
+---
+
+# Funnel
+
+Landing Page
+
+↓
+
+User Opens Form
+
+↓
+
+User Enters Details
+
+↓
+
+Consultation Submitted
+
+↓
+
+Lead Stored
+
+↓
+
+Conversion Recorded

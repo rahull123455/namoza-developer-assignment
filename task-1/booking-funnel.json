@@ -1,25 +1,41 @@
-[
-  {
-    "event": "booking_step_complete",
-    "step_number": 1,
-    "step_name": "location_specialty_selected",
-    "clinic_location": "Koramangala",
-    "specialty": "Orthopaedics"
-  },
-  {
-    "event": "booking_step_complete",
-    "step_number": 2,
-    "step_name": "patient_details_entered",
-    "patient_name": "John Doe",
-    "phone_number": "9876543210",
-    "preferred_date": "2026-07-10"
-  },
-  {
-    "event": "booking_step_complete",
-    "step_number": 3,
-    "step_name": "booking_confirmed",
-    "booking_id": "ORTHO123456",
-    "clinic_location": "Koramangala",
-    "confirmation_status": "Success"
+{
+  "bookingFunnel": {
+    "steps": [
+      {
+        "step": 1,
+        "event": "page_view",
+        "description": "User visits the landing page."
+      },
+      {
+        "step": 2,
+        "event": "consultation_form_started",
+        "description": "User begins filling the consultation form."
+      },
+      {
+        "step": 3,
+        "event": "consultation_form_submitted",
+        "description": "User submits the consultation form successfully."
+      },
+      {
+        "step": 4,
+        "event": "lead_created",
+        "description": "Lead is stored in MongoDB."
+      },
+      {
+        "step": 5,
+        "event": "hubspot_sync",
+        "description": "Lead is sent to HubSpot."
+      },
+      {
+        "step": 6,
+        "event": "karix_whatsapp_sent",
+        "description": "Confirmation WhatsApp message is sent."
+      },
+      {
+        "step": 7,
+        "event": "google_ads_conversion",
+        "description": "Conversion is recorded in Google Ads."
+      }
+    ]
   }
-]
+}
