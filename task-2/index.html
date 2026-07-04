@@ -1579,19 +1579,20 @@
     btn.disabled = true;
 
     const payload = {
-      name: $("#bName").value.trim(),
-      phone: $("#bPhone").value.trim(),
-      email: $("#bEmail").value.trim(),
-      age: $("#bAge").value.trim(),
-      gender: $("#bGender").value,
-      department: $("#bDept").value,
-      doctor: $("#bDoctor").value,
-      location: $("#bLocation").value,
-      date: $("#bDate").value,
-      time: $("#bTime").value,
-      insurance: $("#bInsurance").value,
-      symptoms: $("#bSymptoms").value.trim(),
-    };
+  fullName: $("#bName").value.trim(),
+  phone: $("#bPhone").value.trim(),
+  clinic: $("#bLocation").value,
+
+  email: $("#bEmail").value.trim(),
+  age: $("#bAge").value.trim(),
+  gender: $("#bGender").value,
+  department: $("#bDept").value,
+  doctor: $("#bDoctor").value,
+  date: $("#bDate").value,
+  time: $("#bTime").value,
+  insurance: $("#bInsurance").value,
+  symptoms: $("#bSymptoms").value.trim()
+};
 
     try {
       const res = await fetch("http://localhost:5000/api/consultation", {
@@ -1600,11 +1601,11 @@
         body: JSON.stringify(payload),
       });
       const data = await res.json().catch(()=>({}));
-      if(!res.ok || !data.ok){
-        throw new Error(data.error || "Something went wrong. Please try again.");
-      }
-      $("#successName").textContent = payload.name || "patient";
-      $("#successRef").textContent = data.reference || "—";
+      if (!res.ok || !data.success) {
+    throw new Error(data.message || "Something went wrong. Please try again.");
+    }
+      $("#successName").textContent = payload.fullName || "Patient";
+      $("#successRef").textContent = data.data?._id || "N/A";
       $("#formInner").style.display = "none";
       $("#formSuccess").classList.add("show");
     } catch (err) {
